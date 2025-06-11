@@ -1,0 +1,17 @@
+image: gitpod/workspace-full
+
+tasks:
+  - name: Install Dependencies
+    init: |
+      cd frontend && npm install
+      cd ../backend && npm install
+  - name: Start Dev Servers
+    command: |
+      cd frontend && npm run dev &
+      cd ../backend && npm run start:dev
+
+ports:
+  - port: 3000
+    onOpen: open-preview
+  - port: 3001
+    onOpen: open-preview
